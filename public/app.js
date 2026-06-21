@@ -16,6 +16,12 @@ const state = {
   user: null,
   view: "dashboard",
   authMode: "login",
+  authRole: "user",
+  authConsent: false,
+  authLoading: false,
+  authSuccess: "",
+  resetSent: false,
+  showPassword: false,
   screeningMode: "game",
   mindQuestIndex: 0,
   mindQuestComplete: false,
@@ -853,44 +859,60 @@ function render() {
 
 function renderAuth() {
   applyLanguageMeta();
+  const isSignup = state.authMode === "signup";
+  const isReset = state.authMode === "forgot";
+  const greeting = isSignup ? "Let’s get started 🌱" : isReset ? "Reset password" : "Welcome back 👋";
   app.innerHTML = `
-    <main class="auth">
-      <div class="auth-toolbar">
-        <div class="auth-toolbar-item">${icons.profile}<strong>${t("authTitle")}</strong></div>
-        ${languageSelect()}
-      </div>
-      <section class="auth-card">
-        <div class="auth-hero">
-          <div class="mark">MG</div>
-          <h1>MindGuard AI</h1>
-          <p>${t("authHero")}</p>
-          <div class="notice" style="margin-top:22px;background:rgba(255,255,255,.92);color:#17201c">
-            ${t("authDisclaimer")}
+    <main class="auth redesigned-auth">
+      <div class="auth-language-floating">${languageSelect()}</div>
+      <section class="auth-card auth-shell ${state.authSuccess ? "auth-fading" : ""}">
+        <div class="auth-hero auth-story-panel">
+          <span class="decor-circle c1"></span>
+          <span class="decor-circle c2"></span>
+          <span class="decor-circle c3"></span>
+          <span class="decor-circle c4"></span>
+          <div class="auth-brand-lockup">
+            <div class="shield-logo" aria-hidden="true">🛡️</div>
+            <h1>MindGuard AI</h1>
           </div>
+          <p class="auth-tagline">A calm space to check in, reflect on mood patterns, and find supportive next steps when things feel heavy.</p>
+          <div class="auth-features">
+            <div><span>🧠</span><p>PHQ-9 style mood screening — private and non-clinical</p></div>
+            <div><span>💬</span><p>AI support companion available anytime</p></div>
+            <div><span>📊</span><p>Track emotional patterns over time</p></div>
+          </div>
+          <p class="auth-mini-disclaimer"><span>🛡️</span> Supportive insights only — not a substitute for professional mental health care.</p>
         </div>
-        <div class="auth-form">
-          <div class="tabs">
-            <button class="${state.authMode === "login" ? "active" : ""}" data-auth="login">${t("login")}</button>
-            <button class="${state.authMode === "signup" ? "active" : ""}" data-auth="signup">${t("signup")}</button>
+
+        <div class="auth-form auth-form-panel">
+          ${state.authSuccess ? `<div class="auth-success-flash">${state.authSuccess}</div>` : ""}
+          ${state.resetSent ? `<div class="auth-reset-success">Check your email for a reset link.</div>` : ""}
+          <div class="mobile-auth-brand"><div class="shield-logo">🛡️</div><strong>MindGuard AI</strong></div>
+          <div class="mobile-feature-chips"><span>🧠 Screening</span><span>💬 AI support</span><span>📊 Patterns</span></div>
+          <h2>${greeting}</h2>
+          <div class="tabs auth-tabs">
+            <button class="${state.authMode === "login" ? "active" : ""}" data-auth="login">Login</button>
+            <button class="${state.authMode === "signup" ? "active" : ""}" data-auth="signup">Sign up</button>
           </div>
-          <form id="authForm" class="form">
-            ${state.authMode !== "login" && state.authMode !== "forgot" ? `<label>${t("name")}<input name="name" autocomplete="name" /></label>` : ""}
-            <label>${t("email")}<input name="email" type="email" autocomplete="email" required /></label>
-            ${state.authMode !== "forgot" ? `<label>${t("password")}<input name="password" type="password" autocomplete="${state.authMode === "signup" ? "new-password" : "current-password"}" required /></label>` : ""}
-            ${
-              state.authMode === "signup"
-                ? `<label>${t("role")}<select name="role"><option value="user">User</option><option value="researcher">Researcher</option><option value="admin">Counselor/Admin</option></select></label>`
-                : ""
-            }
-            <button class="btn">${state.authMode === "signup" ? t("createAccount") : state.authMode === "forgot" ? t("sendReset") : t("login")}</button>
-            ${
-              state.authMode === "login"
-                ? `<button class="btn ghost forgot-link" type="button" data-auth="forgot">${t("forgot")}</button>`
-                : state.authMode === "forgot"
-                  ? `<button class="btn ghost forgot-link" type="button" data-auth="login">${t("backLogin")}</button>`
-                  : ""
-            }
-            <p id="authMessage" class="small"></p>
+          ${isReset ? `<p class="auth-caption">Enter your email and we’ll send password reset instructions.</p>` : ""}
+          <form id="authForm" class="form auth-modern-form" novalidate>
+            ${isSignup ? authInput("name", "Name", "text", "Your name", "👤") : ""}
+            ${authInput("email", "Email", "email", "you@university.edu", "✉️")}
+            ${!isReset ? authInput("password", "Password", state.showPassword ? "text" : "password", "8+ characters", "🔒", true) : ""}
+            ${state.authMode === "login" ? `<button class="forgot-inline" type="button" data-auth="forgot">Forgot password?</button>` : ""}
+            ${isSignup ? roleCards() : ""}
+            ${isSignup ? `<label class="consent-check"><input type="checkbox" id="consentCheck" ${state.authConsent ? "checked" : ""} /> <span>I understand this app provides supportive insights only and is not a substitute for professional mental health care.</span></label>` : ""}
+            <button class="auth-submit" ${isSignup && !state.authConsent ? "disabled" : ""}>
+              ${state.authLoading ? `<span class="spinner"></span>` : ""}
+              ${isSignup ? "Create account" : isReset ? "Send reset link" : "Sign in"} <span>→</span>
+            </button>
+            <div class="auth-divider"><span>Or continue with</span></div>
+            <div class="social-row">
+              <button type="button" class="social-btn">G Google</button>
+              <button type="button" class="social-btn">⌘ GitHub</button>
+            </div>
+            <p class="legal-copy">By creating an account you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p>
+            <p id="authMessage" class="small auth-message"></p>
           </form>
         </div>
       </section>
@@ -900,11 +922,57 @@ function renderAuth() {
   document.querySelectorAll("[data-auth]").forEach((button) => {
     button.addEventListener("click", () => {
       state.authMode = button.dataset.auth;
+      state.resetSent = false;
+      state.authSuccess = "";
       renderAuth();
     });
   });
+  document.querySelectorAll("[data-role]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.authRole = button.dataset.role;
+      renderAuth();
+    });
+  });
+  document.querySelector("#consentCheck")?.addEventListener("change", (event) => {
+    state.authConsent = event.target.checked;
+    renderAuth();
+  });
+  document.querySelector("[data-password-toggle]")?.addEventListener("click", () => {
+    state.showPassword = !state.showPassword;
+    renderAuth();
+  });
+  bindAuthValidation();
   bindLanguage();
   document.querySelector("#authForm").addEventListener("submit", handleAuth);
+}
+
+function authInput(name, label, type, placeholder, icon, passwordToggle = false) {
+  return `
+    <div class="auth-field" data-field-wrap="${name}">
+      <label for="auth-${name}">${label}</label>
+      <div class="auth-input-wrap">
+        <span class="field-icon">${icon}</span>
+        <input id="auth-${name}" name="${name}" type="${type}" placeholder="${placeholder}" aria-describedby="${name}-error" autocomplete="${name === "password" ? "current-password" : name}" />
+        ${passwordToggle ? `<button type="button" class="password-toggle" data-password-toggle aria-label="Show or hide password">${state.showPassword ? "🙈" : "👁️"}</button>` : ""}
+        <span class="valid-check" aria-hidden="true">✓</span>
+      </div>
+      <p class="field-error" id="${name}-error"></p>
+    </div>
+  `;
+}
+
+function roleCards() {
+  const roles = [
+    ["user", "👤", "User", "Track my own wellness"],
+    ["admin", "🩺", "Counselor", "Support my clients"],
+    ["researcher", "🔬", "Researcher", "Study aggregated insights"]
+  ];
+  return `
+    <div class="role-card-group" role="radiogroup" aria-label="Role">
+      ${roles.map(([value, icon, title, description]) => `<button type="button" class="role-card ${state.authRole === value ? "selected" : ""}" data-role="${value}" role="radio" aria-checked="${state.authRole === value}"><span>${icon}</span><strong>${title}</strong><small>${description}</small></button>`).join("")}
+      <input type="hidden" name="role" value="${state.authRole}" />
+    </div>
+  `;
 }
 
 function languageSelect() {
@@ -1855,24 +1923,72 @@ function bindCurrentView() {
   });
 }
 
+function bindAuthValidation() {
+  document.querySelectorAll(".auth-field input").forEach((input) => {
+    input.addEventListener("input", () => validateAuthField(input));
+    validateAuthField(input, false);
+  });
+}
+
+function validateAuthField(input, show = true) {
+  const wrap = input.closest(".auth-field");
+  const error = wrap?.querySelector(".field-error");
+  let message = "";
+  if (input.name === "name" && state.authMode === "signup" && input.value.trim().length < 2) message = "Please enter your name.";
+  if (input.name === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())) message = "Enter a valid email address.";
+  if (input.name === "password" && state.authMode !== "forgot" && input.value.length < 8) message = "Password must be at least 8 characters.";
+  wrap?.classList.toggle("valid", !message && input.value.trim().length > 0);
+  wrap?.classList.toggle("invalid", Boolean(message) && show);
+  if (error) error.textContent = show ? message : "";
+  return !message;
+}
+
+function validateAuthForm(form) {
+  const valid = [...form.querySelectorAll(".auth-field input")].every((input) => validateAuthField(input));
+  const message = document.querySelector("#authMessage");
+  if (state.authMode === "signup" && !state.authConsent) {
+    if (message) message.textContent = "Please confirm the supportive-insight consent before creating an account.";
+    return false;
+  }
+  return valid;
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function handleAuth(event) {
   event.preventDefault();
   const form = event.currentTarget;
   const values = Object.fromEntries(new FormData(form));
   const message = document.querySelector("#authMessage");
+  if (!validateAuthForm(form)) return;
+  state.authLoading = true;
+  state.authSuccess = "";
+  renderAuth();
   try {
     if (state.authMode === "forgot") {
       const data = await api("/api/auth/forgot-password", { method: "POST", body: values });
-      message.textContent = data.message;
+      state.authLoading = false;
+      state.resetSent = true;
+      renderAuth();
       return;
     }
     const path = state.authMode === "signup" ? "/api/auth/signup" : "/api/auth/login";
     const { user } = await api(path, { method: "POST", body: values });
+    state.authLoading = false;
+    state.authSuccess = state.authMode === "signup" ? `Welcome, ${user.name || "friend"} ✨` : `Welcome back, ${user.name || "friend"} ✨`;
+    renderAuth();
+    await delay(650);
     state.user = user;
+    state.authSuccess = "";
     await refreshTrend();
     render();
   } catch (error) {
-    message.textContent = error.message;
+    state.authLoading = false;
+    renderAuth();
+    const nextMessage = document.querySelector("#authMessage");
+    if (nextMessage) nextMessage.textContent = error.message;
   }
 }
 
