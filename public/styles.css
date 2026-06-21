@@ -1868,9 +1868,9 @@ textarea::placeholder {
   min-height: 100vh;
   padding: 28px;
   background:
-    radial-gradient(circle at 20% 5%, rgba(122, 154, 140, 0.18), transparent 30%),
-    radial-gradient(circle at 84% 16%, rgba(246, 244, 239, 0.08), transparent 24%),
-    #0f1a16;
+    radial-gradient(circle at 18% 8%, rgba(190, 145, 104, 0.22), transparent 32%),
+    radial-gradient(circle at 84% 16%, rgba(114, 145, 126, 0.16), transparent 24%),
+    #efe7dc;
 }
 
 .auth-language-floating {
@@ -1881,9 +1881,9 @@ textarea::placeholder {
 }
 
 .auth-language-floating .language-select {
-  border-color: rgba(74, 124, 111, 0.28);
-  background: rgba(26, 36, 32, 0.86);
-  color: #eef6f2;
+  border-color: rgba(123, 92, 69, 0.2);
+  background: rgba(255, 250, 243, 0.9);
+  color: #2d332d;
   backdrop-filter: blur(8px);
 }
 
@@ -1891,10 +1891,10 @@ textarea::placeholder {
   width: min(1380px, 100%);
   min-height: 730px;
   grid-template-columns: minmax(0, 45%) minmax(0, 55%);
-  border: 1px solid rgba(246, 244, 239, 0.12);
+  border: 1px solid rgba(123, 92, 69, 0.12);
   border-radius: 34px;
-  background: #17231e;
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+  background: #fbf5ec;
+  box-shadow: 0 28px 90px rgba(87, 61, 42, 0.18);
   backdrop-filter: blur(8px);
 }
 
@@ -1905,13 +1905,13 @@ textarea::placeholder {
   grid-template-rows: auto 1fr auto;
   min-height: 730px;
   padding: 40px 50px 42px;
-  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(123, 92, 69, 0.12);
   border-radius: 34px 0 0 34px;
   background:
-    radial-gradient(circle at 0% 0%, rgba(74, 124, 111, 0.08) 0 250px, transparent 252px),
-    radial-gradient(circle at 100% 100%, rgba(74, 124, 111, 0.05) 0 150px, transparent 152px),
-    linear-gradient(145deg, #1a2e28 0%, #0f1a16 100%);
-  color: #eef6f2;
+    radial-gradient(circle at 0% 0%, rgba(255, 244, 229, 0.22) 0 250px, transparent 252px),
+    radial-gradient(circle at 100% 100%, rgba(74, 124, 111, 0.1) 0 150px, transparent 152px),
+    linear-gradient(145deg, #b8835f 0%, #7d6f58 52%, #4a7c6f 100%);
+  color: #fffaf3;
 }
 
 .auth-editorial-top {
@@ -1926,7 +1926,7 @@ textarea::placeholder {
   display: inline-flex;
   align-items: center;
   gap: 13px;
-  color: #f4fbf8;
+  color: #fffaf3;
   font-size: 25px;
   letter-spacing: -0.02em;
 }
@@ -1937,7 +1937,7 @@ textarea::placeholder {
   height: 46px;
   place-items: center;
   border-radius: 15px;
-  background: #4a7c6f;
+  background: #6f8f7d;
   color: #ffffff;
   font-size: 25px;
 }
@@ -1970,7 +1970,7 @@ textarea::placeholder {
 
 .auth-kicker {
   margin: 0 0 12px;
-  color: #8ed4bd;
+  color: #fff0dc;
   font-size: 11px;
   font-weight: 850;
   letter-spacing: 0.22em;
@@ -1979,7 +1979,7 @@ textarea::placeholder {
 
 .auth-hero-copy h1 {
   margin: 0;
-  color: #f7f4ef;
+  color: #fffaf3;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 32px;
   font-weight: 400;
@@ -1992,7 +1992,7 @@ textarea::placeholder {
   z-index: 1;
   max-width: 520px;
   margin: 18px auto 0;
-  color: rgba(238, 246, 242, 0.68);
+  color: rgba(255, 250, 243, 0.76);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -2007,10 +2007,10 @@ textarea::placeholder {
 
 .auth-proof-row span {
   padding: 8px 10px;
-  border: 1px solid rgba(142, 212, 189, 0.16);
+  border: 1px solid rgba(255, 250, 243, 0.2);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.045);
-  color: rgba(238, 246, 242, 0.78);
+  background: rgba(255, 250, 243, 0.12);
+  color: rgba(255, 250, 243, 0.86);
   font-size: 11px;
   font-weight: 680;
 }
@@ -2019,14 +2019,14 @@ textarea::placeholder {
   position: relative;
   z-index: 2;
   margin: 0;
-  color: rgba(238, 246, 242, 0.48);
+  color: rgba(255, 250, 243, 0.62);
   font-size: 11px;
 }
 
 .decor-circle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(74, 124, 111, 0.08);
+  background: rgba(255, 250, 243, 0.1);
 }
 
 .decor-circle.c1 {
@@ -2041,7 +2041,7 @@ textarea::placeholder {
   height: 300px;
   right: -130px;
   bottom: -120px;
-  background: rgba(74, 124, 111, 0.05);
+  background: rgba(255, 250, 243, 0.07);
 }
 
 .decor-circle.c3 {
@@ -2049,7 +2049,7 @@ textarea::placeholder {
   height: 160px;
   right: 18%;
   top: 18%;
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 250, 243, 0.08);
 }
 
 .auth-form-panel {
@@ -2057,27 +2057,27 @@ textarea::placeholder {
   flex-direction: column;
   justify-content: center;
   padding: 60px 56px;
-  border-left: 1px solid rgba(246, 244, 239, 0.08);
+  border-left: 1px solid rgba(123, 92, 69, 0.1);
   border-radius: 0 34px 34px 0;
-  background: #0f1a16;
-  color: #eef6f2;
+  background: #fffaf3;
+  color: #2d332d;
 }
 
 .auth-secure-pill {
   align-self: center;
   margin: 0 0 18px;
   padding: 8px 13px;
-  border: 1px solid rgba(142, 212, 189, 0.22);
+  border: 1px solid rgba(74, 124, 111, 0.2);
   border-radius: 999px;
-  background: rgba(74, 124, 111, 0.12);
-  color: #8ed4bd;
+  background: #edf3ed;
+  color: #4a7c6f;
   font-size: 12px;
   font-weight: 760;
 }
 
 .auth-form-panel h2 {
   margin: 0 0 16px;
-  color: #f6fbf8;
+  color: #2a302a;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 24px;
   font-weight: 400;
@@ -2095,9 +2095,9 @@ textarea::placeholder {
   width: 100%;
   margin-bottom: 16px;
   padding: 5px;
-  border: 1px solid rgba(238, 246, 242, 0.09);
+  border: 1px solid rgba(123, 92, 69, 0.12);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.035);
+  background: #f3eadf;
 }
 
 .auth-tabs button {
@@ -2106,14 +2106,14 @@ textarea::placeholder {
   flex: 1;
   min-height: 40px;
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(45, 51, 45, 0.46);
   transition: all 160ms ease;
 }
 
 .auth-tabs button.active {
-  background: #5a8c7f;
+  background: #6f8f7d;
   color: #fff;
-  box-shadow: 0 8px 24px rgba(20, 37, 31, 0.22);
+  box-shadow: 0 8px 22px rgba(92, 109, 88, 0.18);
 }
 
 .auth-tabs button.active::after {
@@ -2123,7 +2123,7 @@ textarea::placeholder {
   left: 18px;
   height: 2px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 250, 243, 0.75);
   content: "";
 }
 
@@ -2137,7 +2137,7 @@ textarea::placeholder {
 }
 
 .auth-field label {
-  color: #dce8e4;
+  color: #3d473f;
   font-size: 12px;
   font-weight: 750;
   letter-spacing: 0.01em;
@@ -2151,15 +2151,15 @@ textarea::placeholder {
   width: 100%;
   min-height: 52px;
   padding: 10px 44px;
-  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border: 1px solid rgba(123, 92, 69, 0.16) !important;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.055) !important;
-  color: #f4fbf8 !important;
+  background: #fbf5ec !important;
+  color: #2d332d !important;
   outline: none;
 }
 
 .auth-input-wrap input::placeholder {
-  color: #7f918b !important;
+  color: #9a8d80 !important;
 }
 
 .auth-input-wrap input:focus {
@@ -2179,7 +2179,7 @@ textarea::placeholder {
   right: 14px;
   top: 50%;
   display: none;
-  color: #8ed4bd;
+  color: #4a7c6f;
   transform: translateY(-50%);
 }
 
@@ -2206,7 +2206,7 @@ textarea::placeholder {
 .auth-message {
   min-height: 12px;
   margin: 0;
-  color: #ff8f9d;
+  color: #b84a4f;
   font-size: 12px;
 }
 
@@ -2214,7 +2214,7 @@ textarea::placeholder {
   justify-self: end;
   margin-top: -6px;
   background: transparent;
-  color: #8ed4bd;
+  color: #4a7c6f;
   font-size: 12px;
   font-weight: 750;
 }
@@ -2230,10 +2230,10 @@ textarea::placeholder {
   gap: 5px;
   min-height: 84px;
   padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(123, 92, 69, 0.14);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  color: #dce8e4;
+  background: #fbf5ec;
+  color: #2d332d;
   text-align: left;
 }
 
@@ -2243,8 +2243,8 @@ textarea::placeholder {
   height: 30px;
   place-items: center;
   border-radius: 10px;
-  background: rgba(142, 212, 189, 0.16);
-  color: #8ed4bd;
+  background: #edf3ed;
+  color: #4a7c6f;
   font-size: 16px;
 }
 
@@ -2255,8 +2255,8 @@ textarea::placeholder {
 }
 
 .role-card.selected {
-  border-color: #8ed4bd;
-  background: rgba(74, 124, 111, 0.18);
+  border-color: #4a7c6f;
+  background: #eef4ee;
 }
 
 .role-card strong {
@@ -2264,7 +2264,7 @@ textarea::placeholder {
 }
 
 .role-card small {
-  color: #9fb1ab;
+  color: #71675d;
   font-size: 11px;
 }
 
@@ -2272,14 +2272,14 @@ textarea::placeholder {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  color: #aebfba;
+  color: #71675d;
   font-size: 11px;
   line-height: 1.35;
 }
 
 .auth-switch-copy {
   margin: -2px 0 0;
-  color: #94a6a0;
+  color: #71675d;
   font-size: 13px;
   text-align: center;
 }
@@ -2287,7 +2287,7 @@ textarea::placeholder {
 .auth-switch-copy button {
   padding: 0;
   background: transparent;
-  color: #8ed4bd;
+  color: #4a7c6f;
   font-size: inherit;
   font-weight: 780;
 }
@@ -2309,7 +2309,7 @@ textarea::placeholder {
   justify-content: center;
   gap: 8px;
   border-radius: 14px;
-  background: #5a8c7f;
+  background: #6f8f7d;
   color: #fff;
   font-size: 14px;
   font-weight: 760;
@@ -2317,7 +2317,7 @@ textarea::placeholder {
 }
 
 .auth-submit:hover {
-  background: #679d8e;
+  background: #7f9d8d;
   transform: translateY(-1px);
 }
 
@@ -2345,7 +2345,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #83958f;
+  color: #8b8075;
   font-size: 12px;
 }
 
@@ -2353,7 +2353,7 @@ textarea::placeholder {
 .auth-divider::after {
   height: 1px;
   flex: 1;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(123, 92, 69, 0.14);
   content: "";
 }
 
@@ -2369,10 +2369,10 @@ textarea::placeholder {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(123, 92, 69, 0.14);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.025);
-  color: #dce8e4;
+  background: #fbf5ec;
+  color: #2d332d;
   font-weight: 720;
 }
 
@@ -2398,22 +2398,22 @@ textarea::placeholder {
 
 .legal-copy {
   margin: 0;
-  color: #83958f;
+  color: #8b8075;
   font-size: 11px;
   line-height: 1.45;
 }
 
 .legal-copy a {
-  color: #8ed4bd;
+  color: #4a7c6f;
 }
 
 .auth-reset-success,
 .auth-success-flash {
   padding: 10px 12px;
-  border: 1px solid rgba(142, 212, 189, 0.35);
+  border: 1px solid rgba(74, 124, 111, 0.28);
   border-radius: 10px;
-  background: rgba(74, 124, 111, 0.18);
-  color: #c9f4e6;
+  background: #edf3ed;
+  color: #365f54;
 }
 
 .auth-fading {
@@ -2471,7 +2471,7 @@ textarea::placeholder {
     justify-content: center;
     gap: 10px;
     margin-bottom: 14px;
-    color: #f4fbf8;
+    color: #2d332d;
     font-size: 21px;
   }
 
@@ -2487,7 +2487,7 @@ textarea::placeholder {
     padding: 6px 10px;
     border: 1px solid rgba(74, 124, 111, 0.25);
     border-radius: 999px;
-    color: #aebfba;
+    color: #6b776f;
     font-size: 12px;
   }
 
