@@ -2056,52 +2056,62 @@ textarea::placeholder {
   line-height: 1.6;
 }
 
-.auth-hero-search {
+.auth-feature-rail {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-  align-items: center;
-  gap: 0;
-  width: min(720px, calc(100% - 40px));
-  margin: auto auto 0;
-  overflow: hidden;
-  border: 1px solid #d0d8d4;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.94);
-  color: #111714;
-  box-shadow: 0 14px 38px rgba(14, 28, 22, 0.13);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  width: min(560px, calc(100% - 72px));
+  margin: -52px auto 14px;
+  padding: 10px;
+  border: 1px solid rgba(208, 216, 212, 0.78);
+  border-radius: 18px;
+  background: rgba(246, 244, 239, 0.9);
+  color: #27342f;
+  backdrop-filter: blur(6px);
 }
 
-.auth-hero-search span {
+.auth-feature-rail span {
   display: grid;
-  gap: 3px;
+  gap: 2px;
   min-width: 0;
-  padding: 14px 22px;
-  border-right: 1px solid #d0d8d4;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.58);
 }
 
-.auth-hero-search strong {
-  font-size: 14px;
-  font-weight: 800;
+.auth-feature-rail strong {
+  color: #16211d;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
 }
 
-.auth-hero-search small {
+.auth-feature-rail small {
   overflow: hidden;
   color: #66746f;
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.35;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.auth-hero-search button {
-  min-height: 58px;
-  padding: 0 26px;
+.auth-hero-cta {
+  position: relative;
+  z-index: 3;
+  justify-self: center;
+  min-height: 42px;
+  margin: 0 auto 22px;
+  padding: 0 24px;
+  border: 1px solid rgba(74, 124, 111, 0.35);
   border-radius: 999px;
-  background: #4a7c6f;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
+  background: #f4f1ea;
+  color: #2e4f46;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 750;
 }
 
 .auth-features p {

@@ -882,12 +882,12 @@ function renderAuth() {
             <h1>Wellness support, made calmer and personal</h1>
             <p class="auth-tagline">Check in with your mood, notice emotional patterns, and get gentle next steps in one private space.</p>
           </div>
-          <div class="auth-hero-search" aria-label="MindGuard quick actions">
+          <div class="auth-feature-rail" aria-label="MindGuard quick actions">
             <span><strong>Screening</strong><small>PHQ-9 style</small></span>
             <span><strong>AI support</strong><small>Companion chat</small></span>
             <span><strong>Trends</strong><small>Mood history</small></span>
-            <button type="button" data-auth="signup">Get started</button>
           </div>
+          <button class="auth-hero-cta" type="button" data-auth="signup">Get started</button>
         </div>
 
         <div class="auth-form auth-form-panel">
