@@ -1868,7 +1868,8 @@ textarea::placeholder {
   min-height: 100vh;
   padding: 82px 28px 28px;
   background:
-    radial-gradient(circle at top left, rgba(74, 124, 111, 0.2), transparent 34%),
+    radial-gradient(circle at 20% 5%, rgba(122, 154, 140, 0.18), transparent 30%),
+    radial-gradient(circle at 84% 16%, rgba(246, 244, 239, 0.08), transparent 24%),
     #0f1a16;
 }
 
@@ -1905,12 +1906,13 @@ textarea::placeholder {
 }
 
 .auth-shell {
-  width: min(1360px, 100%);
-  min-height: 720px;
+  width: min(1380px, 100%);
+  min-height: 730px;
   grid-template-columns: minmax(0, 1.16fr) minmax(430px, 0.84fr);
-  border: 1px solid rgba(74, 124, 111, 0.2);
-  border-radius: 28px;
-  background: #1a2420;
+  border: 1px solid rgba(246, 244, 239, 0.12);
+  border-radius: 34px;
+  background: #17231e;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(8px);
 }
 
@@ -1919,9 +1921,9 @@ textarea::placeholder {
   display: grid;
   overflow: hidden;
   align-content: stretch;
-  min-height: 720px;
-  padding: 34px 42px 38px;
-  border-radius: 28px 0 0 28px;
+  min-height: 730px;
+  padding: 40px 50px 42px;
+  border-radius: 34px 0 0 34px;
   background: #fbfaf6;
   color: #101612;
 }
@@ -1937,31 +1939,31 @@ textarea::placeholder {
 .auth-wordmark {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 13px;
   color: #111714;
-  font-size: 24px;
+  font-size: 25px;
   letter-spacing: -0.02em;
 }
 
 .shield-logo {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   place-items: center;
-  border-radius: 14px;
+  border-radius: 15px;
   background: #4a7c6f;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 25px;
 }
 
 .auth-live-pill {
-  padding: 8px 12px;
+  padding: 9px 14px;
   border: 1px solid rgba(74, 124, 111, 0.22);
   border-radius: 999px;
-  background: #eef6f2;
-  color: #41665c;
+  background: #f1f5f1;
+  color: #3e5e55;
   font-size: 12px;
-  font-weight: 750;
+  font-weight: 760;
 }
 
 .auth-photo-collage {
@@ -1974,40 +1976,42 @@ textarea::placeholder {
   position: absolute;
   display: block;
   overflow: hidden;
-  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 24px;
   background-color: #dce8e4;
   background-position: center;
   background-size: cover;
+  box-shadow: 0 20px 58px rgba(24, 35, 30, 0.16);
 }
 
 .photo-card::after {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.1);
   content: "";
 }
 
 .photo-one {
-  top: 138px;
-  left: 38px;
-  width: 220px;
-  height: 150px;
+  top: 142px;
+  left: 46px;
+  width: 225px;
+  height: 154px;
   background-image: url("https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80");
 }
 
 .photo-two {
-  right: 32px;
-  top: 250px;
-  width: 205px;
-  height: 270px;
+  right: 44px;
+  top: 248px;
+  width: 218px;
+  height: 284px;
   background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=700&q=80");
 }
 
 .photo-three {
-  left: -18px;
-  bottom: 66px;
-  width: 205px;
-  height: 205px;
+  left: 42px;
+  bottom: 74px;
+  width: 210px;
+  height: 210px;
   background-image: url("https://images.unsplash.com/photo-1490730141103-6cac27aaab94?auto=format&fit=crop&w=700&q=80");
 }
 
@@ -2016,13 +2020,13 @@ textarea::placeholder {
   z-index: 2;
   align-self: center;
   justify-self: center;
-  max-width: 560px;
-  margin: 82px 120px 78px 132px;
-  padding: 30px 34px 34px;
-  border: 1px solid rgba(208, 216, 212, 0.7);
-  border-radius: 24px;
-  background: rgba(251, 250, 246, 0.88);
-  box-shadow: 0 18px 60px rgba(14, 28, 22, 0.08);
+  max-width: 585px;
+  margin: 70px 132px 76px 148px;
+  padding: 34px 40px 38px;
+  border: 1px solid rgba(208, 216, 212, 0.66);
+  border-radius: 30px;
+  background: rgba(251, 250, 246, 0.92);
+  box-shadow: 0 24px 80px rgba(14, 28, 22, 0.1);
   text-align: center;
   backdrop-filter: blur(6px);
 }
@@ -2030,9 +2034,9 @@ textarea::placeholder {
 .auth-kicker {
   margin: 0 0 12px;
   color: #4a7c6f;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 850;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -2040,7 +2044,7 @@ textarea::placeholder {
   margin: 0;
   color: #050806;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(42px, 4.7vw, 66px);
+  font-size: clamp(44px, 4.6vw, 68px);
   font-weight: 500;
   line-height: 1.02;
   letter-spacing: 0;
@@ -2056,18 +2060,36 @@ textarea::placeholder {
   line-height: 1.6;
 }
 
+.auth-proof-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.auth-proof-row span {
+  padding: 7px 10px;
+  border: 1px solid rgba(74, 124, 111, 0.16);
+  border-radius: 999px;
+  background: rgba(242, 246, 243, 0.78);
+  color: #51655f;
+  font-size: 11px;
+  font-weight: 680;
+}
+
 .auth-feature-rail {
   position: relative;
   z-index: 3;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  width: min(560px, calc(100% - 72px));
-  margin: -52px auto 14px;
-  padding: 10px;
-  border: 1px solid rgba(208, 216, 212, 0.78);
-  border-radius: 18px;
-  background: rgba(246, 244, 239, 0.9);
+  width: min(540px, calc(100% - 96px));
+  margin: -48px auto 14px;
+  padding: 8px;
+  border: 1px solid rgba(196, 207, 202, 0.72);
+  border-radius: 20px;
+  background: rgba(250, 249, 245, 0.94);
   color: #27342f;
   backdrop-filter: blur(6px);
 }
@@ -2076,9 +2098,9 @@ textarea::placeholder {
   display: grid;
   gap: 2px;
   min-width: 0;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.58);
+  padding: 11px 12px;
+  border-radius: 14px;
+  background: rgba(246, 244, 239, 0.74);
 }
 
 .auth-feature-rail strong {
@@ -2102,13 +2124,13 @@ textarea::placeholder {
   position: relative;
   z-index: 3;
   justify-self: center;
-  min-height: 42px;
+  min-height: 44px;
   margin: 0 auto 22px;
-  padding: 0 24px;
-  border: 1px solid rgba(74, 124, 111, 0.35);
+  padding: 0 28px;
+  border: 1px solid rgba(74, 124, 111, 0.22);
   border-radius: 999px;
-  background: #f4f1ea;
-  color: #2e4f46;
+  background: #ede8df;
+  color: #294b42;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 13px;
   font-weight: 750;
@@ -2166,16 +2188,21 @@ textarea::placeholder {
 .auth-form-panel {
   display: grid;
   align-content: center;
-  padding: 32px 38px;
-  border-radius: 0 28px 28px 0;
-  background: #1a2420;
+  padding: 42px 44px;
+  border-left: 1px solid rgba(246, 244, 239, 0.08);
+  border-radius: 0 34px 34px 0;
+  background:
+    radial-gradient(circle at top right, rgba(74, 124, 111, 0.18), transparent 30%),
+    #16221d;
   color: #eef6f2;
 }
 
 .auth-form-panel h2 {
-  margin: 0 0 12px;
-  font-size: 20px;
-  font-weight: 500;
+  margin: 0 0 16px;
+  color: #f6fbf8;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
 }
 
 .mobile-auth-brand,
@@ -2185,24 +2212,29 @@ textarea::placeholder {
 
 .auth-tabs {
   width: 100%;
-  margin-bottom: 12px;
-  border: 1px solid rgba(74, 124, 111, 0.2);
-  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 16px;
+  padding: 5px;
+  border: 1px solid rgba(238, 246, 242, 0.09);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
 }
 
 .auth-tabs button {
   flex: 1;
-  color: #aebfba;
+  min-height: 40px;
+  border-radius: 10px;
+  color: #b8c8c2;
   transition: all 160ms ease;
 }
 
 .auth-tabs button.active {
-  background: #4a7c6f;
+  background: #5a8c7f;
   color: #fff;
+  box-shadow: 0 8px 24px rgba(20, 37, 31, 0.22);
 }
 
 .auth-modern-form {
-  gap: 10px;
+  gap: 12px;
 }
 
 .auth-field {
@@ -2212,7 +2244,9 @@ textarea::placeholder {
 
 .auth-field label {
   color: #dce8e4;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.01em;
 }
 
 .auth-input-wrap {
@@ -2221,11 +2255,11 @@ textarea::placeholder {
 
 .auth-input-wrap input {
   width: 100%;
-  min-height: 42px;
-  padding: 8px 42px;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05) !important;
+  min-height: 48px;
+  padding: 10px 44px;
+  border: 1px solid rgba(255, 255, 255, 0.11) !important;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.055) !important;
   color: #f4fbf8 !important;
   outline: none;
 }
@@ -2235,7 +2269,8 @@ textarea::placeholder {
 }
 
 .auth-input-wrap input:focus {
-  border-color: #4a7c6f !important;
+  border-color: #8ed4bd !important;
+  box-shadow: 0 0 0 3px rgba(142, 212, 189, 0.1);
 }
 
 .field-icon {
@@ -2283,10 +2318,11 @@ textarea::placeholder {
 
 .forgot-inline {
   justify-self: end;
-  margin-top: -8px;
+  margin-top: -6px;
   background: transparent;
   color: #8ed4bd;
   font-size: 12px;
+  font-weight: 750;
 }
 
 .role-card-group {
@@ -2354,20 +2390,21 @@ textarea::placeholder {
 .auth-submit {
   display: inline-flex;
   width: 100%;
-  min-height: 42px;
+  min-height: 48px;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border-radius: 10px;
-  background: #4a7c6f;
+  border-radius: 14px;
+  background: #5a8c7f;
   color: #fff;
   font-size: 14px;
-  font-weight: 500;
-  transition: background 160ms ease;
+  font-weight: 760;
+  transition: background 160ms ease, transform 160ms ease;
 }
 
 .auth-submit:hover {
-  background: #5d9283;
+  background: #679d8e;
+  transform: translateY(-1px);
 }
 
 .auth-submit:disabled {
@@ -2414,14 +2451,15 @@ textarea::placeholder {
 
 .social-btn {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
-  background: transparent;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
   color: #dce8e4;
+  font-weight: 720;
 }
 
 .brand-icon {
@@ -2483,11 +2521,13 @@ textarea::placeholder {
 
   .auth-story-panel {
     min-height: 580px;
-    border-radius: 28px 28px 0 0;
+    border-radius: 34px 34px 0 0;
   }
 
   .auth-form-panel {
-    border-radius: 0 0 28px 28px;
+    border-left: 0;
+    border-top: 1px solid rgba(246, 244, 239, 0.08);
+    border-radius: 0 0 34px 34px;
   }
 
   .photo-two {
@@ -2497,6 +2537,10 @@ textarea::placeholder {
   .auth-hero-copy {
     margin-right: 150px;
     margin-left: 150px;
+  }
+
+  .auth-feature-rail {
+    margin-top: -28px;
   }
 }
 

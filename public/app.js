@@ -881,6 +881,11 @@ function renderAuth() {
             <p class="auth-kicker">Supportive insight, anytime</p>
             <h1>Wellness support, made calmer and personal</h1>
             <p class="auth-tagline">Check in with your mood, notice emotional patterns, and get gentle next steps in one private space.</p>
+            <div class="auth-proof-row" aria-label="MindGuard care standards">
+              <span>Private by design</span>
+              <span>Non-clinical insight</span>
+              <span>Crisis resources ready</span>
+            </div>
           </div>
           <div class="auth-feature-rail" aria-label="MindGuard quick actions">
             <span><strong>Screening</strong><small>PHQ-9 style</small></span>
