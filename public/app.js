@@ -20,6 +20,7 @@ const state = {
   authConsent: false,
   authLoading: false,
   authSuccess: "",
+  authDark: false,
   resetSent: false,
   showPassword: false,
   screeningMode: "game",
@@ -861,31 +862,44 @@ function renderAuth() {
   applyLanguageMeta();
   const isSignup = state.authMode === "signup";
   const isReset = state.authMode === "forgot";
+  const isGuest = state.authMode === "guest";
   const greeting = isSignup ? "Let’s get started 🌱" : isReset ? "Reset password" : "Welcome back 👋";
   const authSwitchPrompt = isSignup
     ? `<p class="auth-switch-copy">Already have an account? <button type="button" data-auth="login">Sign in →</button></p>`
-    : isReset
+    : isReset || isGuest
       ? ""
       : `<p class="auth-switch-copy">Don’t have an account? <button type="button" data-auth="signup">Sign up →</button></p>`;
   app.innerHTML = `
-    <main class="auth redesigned-auth">
+    <main class="auth redesigned-auth ${state.authDark ? "auth-dark" : ""}">
       <div class="auth-language-floating">${languageSelect()}</div>
+      <button class="auth-theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode">${state.authDark ? "☀" : "◐"}</button>
       <section class="auth-card auth-shell ${state.authSuccess ? "auth-fading" : ""}">
         <div class="auth-hero auth-story-panel">
-          <span class="decor-circle c1"></span>
-          <span class="decor-circle c2"></span>
-          <span class="decor-circle c3"></span>
+          <div class="neural-bg" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="mood-particles" aria-hidden="true">
+            <i>🙂</i><i>🌿</i><i>💭</i><i>✨</i><i>🫶</i>
+          </div>
           <div class="auth-editorial-top">
             <div class="auth-wordmark"><span class="shield-logo" aria-hidden="true">🛡️</span><strong><span>MindGuard</span> <em>AI</em></strong></div>
           </div>
           <div class="auth-hero-copy">
-            <p class="auth-kicker">Supportive insight, anytime</p>
-            <h1>Your calm space to check in</h1>
-            <p class="auth-tagline">Private mood tracking, AI support, and gentle pattern insights — all in one place.</p>
+            <div class="ai-brain" aria-hidden="true"><span></span><span></span><span></span><strong>AI</strong></div>
+            <p class="auth-kicker">AI-powered mental wellness platform</p>
+            <h1>Detect Patterns. Support Wellbeing.</h1>
+            <p class="auth-tagline">Multimodal AI for mood insights, emotional wellness, and early support.</p>
             <div class="auth-feature-list" aria-label="MindGuard feature highlights">
-              <div><span>🧠</span><p><strong>PHQ-9 style screening</strong><small>private, non-clinical</small></p></div>
-              <div><span>💬</span><p><strong>AI companion chat</strong><small>available anytime</small></p></div>
-              <div><span>📊</span><p><strong>Mood pattern tracking</strong><small>weekly insights</small></p></div>
+              <div><span>🧠</span><p><strong>Depression Screening</strong><small>supportive, non-clinical signals</small></p></div>
+              <div><span>🤖</span><p><strong>AI Mental Health Companion</strong><small>empathetic support anytime</small></p></div>
+              <div><span>📊</span><p><strong>Mood Analytics Dashboard</strong><small>weekly patterns and trends</small></p></div>
+              <div><span>🖼️</span><p><strong>Text + Image Emotion Analysis</strong><small>multimodal wellness context</small></p></div>
+              <div><span>🔒</span><p><strong>Privacy First</strong><small>consent-based data use</small></p></div>
+            </div>
+            <div class="auth-stat-row" aria-label="MindGuard platform statistics">
+              <span><strong>250K+</strong><small>Posts Analyzed</small></span>
+              <span><strong>95%</strong><small>Detection Accuracy</small></span>
+              <span><strong>24/7</strong><small>AI Support</small></span>
             </div>
             <div class="auth-proof-row" aria-label="MindGuard care standards">
               <span>🔒 Private by design</span>
@@ -893,6 +907,9 @@ function renderAuth() {
               <span>📞 Crisis resources ready</span>
             </div>
           </div>
+          <div class="floating-insight-card card-mood"><small>Mood score</small><strong>7.8</strong><span>Stable today</span></div>
+          <div class="floating-insight-card card-trend"><small>Weekly trend</small><strong>↑ 12%</strong><span>Improving</span></div>
+          <div class="floating-insight-card card-ai"><small>AI insight</small><strong>Calm pattern</strong><span>Sleep helped mood</span></div>
           <p class="auth-panel-disclaimer">Not a substitute for professional mental health care.</p>
         </div>
 
@@ -901,17 +918,29 @@ function renderAuth() {
           ${state.resetSent ? `<div class="auth-reset-success">Check your email for a reset link.</div>` : ""}
           <div class="mobile-auth-brand"><div class="shield-logo">🛡️</div><strong>MindGuard AI</strong></div>
           <div class="mobile-feature-chips"><span>🔒 Private</span><span>⚕️ Non-clinical</span><span>📞 Crisis ready</span></div>
-          <div class="auth-secure-pill">🛡️ Secure & private</div>
-          <h2>${greeting}</h2>
+          <div class="auth-card-brand">
+            <div class="auth-card-logo"><span class="shield-logo">🛡️</span><div><strong>MindGuard AI</strong><small>AI-Powered Mental Wellness Platform</small></div></div>
+            <div class="auth-secure-pill">HIPAA-inspired privacy · supportive insight only</div>
+          </div>
+          <h2>${isGuest ? "Explore MindGuard AI" : greeting}</h2>
           <div class="tabs auth-tabs">
             <button class="${state.authMode === "login" ? "active" : ""}" data-auth="login">Login</button>
-            <button class="${state.authMode === "signup" ? "active" : ""}" data-auth="signup">Sign up</button>
+            <button class="${state.authMode === "signup" ? "active" : ""}" data-auth="signup">Register</button>
+            <button class="${state.authMode === "guest" ? "active" : ""}" data-auth="guest">Continue as Guest</button>
           </div>
           ${isReset ? `<p class="auth-caption">Enter your email and we’ll send password reset instructions.</p>` : ""}
-          <form id="authForm" class="form auth-modern-form" novalidate>
+          ${isGuest ? `
+            <div class="guest-panel">
+              <p>Preview the dashboard, try the screening flow, or open the AI companion without creating an account.</p>
+              <button class="auth-submit" type="button" data-guest="dashboard">Explore Demo Dashboard <span>→</span></button>
+              <button class="auth-secondary-action" type="button" data-guest="screening">Take Quick Mental Wellness Check</button>
+              <button class="auth-secondary-action" type="button" data-auth="signup">Create a secure account</button>
+            </div>
+          ` : `<form id="authForm" class="form auth-modern-form" novalidate>
             ${isSignup ? authInput("name", "Name", "text", "Your name", "👤") : ""}
             ${authInput("email", "Email", "email", "you@example.com", "✉️")}
             ${!isReset ? authInput("password", "Password", state.showPassword ? "text" : "password", "8+ characters", "🔒", true) : ""}
+            ${!isReset ? `<div class="password-strength" aria-label="Password strength"><span></span><span></span><span></span><small>Password strength</small></div>` : ""}
             ${state.authMode === "login" ? `<button class="forgot-inline" type="button" data-auth="forgot">Forgot password?</button>` : ""}
             ${isSignup ? roleCards() : ""}
             ${isSignup ? `<label class="consent-check"><input type="checkbox" id="consentCheck" ${state.authConsent ? "checked" : ""} /> <span>I understand this app provides supportive insights only and is not a substitute for professional mental health care.</span></label>` : ""}
@@ -924,10 +953,16 @@ function renderAuth() {
             <div class="social-row">
               <button type="button" class="social-btn"><span class="brand-icon google-icon">G</span>Google</button>
               <button type="button" class="social-btn"><span class="brand-icon microsoft-icon">M</span>Microsoft</button>
+              <button type="button" class="social-btn"><span class="brand-icon github-icon">⌘</span>GitHub</button>
+            </div>
+            <div class="auth-deep-links">
+              <button type="button" data-guest="screening">Take Quick Mental Wellness Check</button>
+              <button type="button" data-guest="dashboard">Explore Demo Dashboard</button>
+              <button type="button" data-auth="signup">Learn How It Works</button>
             </div>
             <p class="legal-copy">By creating an account you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p>
             <p id="authMessage" class="small auth-message"></p>
-          </form>
+          </form>`}
         </div>
       </section>
       <div class="auth-version-tag">v1.0 · Academic Capstone</div>
@@ -956,9 +991,30 @@ function renderAuth() {
     state.showPassword = !state.showPassword;
     renderAuth();
   });
+  document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
+    state.authDark = !state.authDark;
+    renderAuth();
+  });
+  document.querySelectorAll("[data-guest]").forEach((button) => {
+    button.addEventListener("click", () => enterGuestMode(button.dataset.guest));
+  });
   bindAuthValidation();
   bindLanguage();
-  document.querySelector("#authForm").addEventListener("submit", handleAuth);
+  document.querySelector("#authForm")?.addEventListener("submit", handleAuth);
+}
+
+function enterGuestMode(target = "dashboard") {
+  state.user = {
+    id: "guest_user",
+    name: "Guest",
+    role: "user",
+    email: "",
+    createdAt: new Date().toISOString(),
+    consent: { moodHistory: false, research: false, highRiskAlerts: false, imageAnalysis: false }
+  };
+  state.view = target === "screening" ? "screening" : "dashboard";
+  state.trend = { entries: fallbackWeek.map((item) => ({ ...item, createdAt: new Date().toISOString() })) };
+  render();
 }
 
 function authInput(name, label, type, placeholder, icon, passwordToggle = false) {
