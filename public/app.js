@@ -868,19 +868,25 @@ function renderAuth() {
       <div class="auth-language-floating">${languageSelect()}</div>
       <section class="auth-card auth-shell ${state.authSuccess ? "auth-fading" : ""}">
         <div class="auth-hero auth-story-panel">
-          <span class="decor-circle c1"></span>
-          <span class="decor-circle c2"></span>
-          <span class="decor-circle c3"></span>
-          <span class="decor-circle c4"></span>
-          <div class="auth-brand-lockup">
-            <div class="shield-logo" aria-hidden="true">🛡️</div>
-            <h1>MindGuard AI</h1>
+          <div class="auth-editorial-top">
+            <div class="auth-wordmark"><span class="shield-logo" aria-hidden="true">🛡️</span><strong>MindGuard AI</strong></div>
+            <span class="auth-live-pill">Private wellness check-ins</span>
           </div>
-          <p class="auth-tagline">A calm space to check in, reflect on mood patterns, and find supportive next steps when things feel heavy.</p>
-          <div class="auth-features">
-            <div><span>🧠</span><p>PHQ-9 style mood screening — private and non-clinical</p></div>
-            <div><span>💬</span><p>AI support companion available anytime</p></div>
-            <div><span>📊</span><p>Track emotional patterns over time</p></div>
+          <div class="auth-photo-collage" aria-hidden="true">
+            <span class="photo-card photo-one"></span>
+            <span class="photo-card photo-two"></span>
+            <span class="photo-card photo-three"></span>
+          </div>
+          <div class="auth-hero-copy">
+            <p class="auth-kicker">Supportive insight, anytime</p>
+            <h1>Wellness support, made calmer and personal</h1>
+            <p class="auth-tagline">Check in with your mood, notice emotional patterns, and get gentle next steps in one private space.</p>
+          </div>
+          <div class="auth-hero-search" aria-label="MindGuard quick actions">
+            <span><strong>Screening</strong><small>PHQ-9 style</small></span>
+            <span><strong>AI support</strong><small>Companion chat</small></span>
+            <span><strong>Trends</strong><small>Mood history</small></span>
+            <button type="button" data-auth="signup">Get started</button>
           </div>
         </div>
 
