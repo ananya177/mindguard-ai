@@ -897,7 +897,7 @@ function renderAuth() {
           ${isReset ? `<p class="auth-caption">Enter your email and we’ll send password reset instructions.</p>` : ""}
           <form id="authForm" class="form auth-modern-form" novalidate>
             ${isSignup ? authInput("name", "Name", "text", "Your name", "👤") : ""}
-            ${authInput("email", "Email", "email", "you@university.edu", "✉️")}
+            ${authInput("email", "Email", "email", "you@example.com", "✉️")}
             ${!isReset ? authInput("password", "Password", state.showPassword ? "text" : "password", "8+ characters", "🔒", true) : ""}
             ${state.authMode === "login" ? `<button class="forgot-inline" type="button" data-auth="forgot">Forgot password?</button>` : ""}
             ${isSignup ? roleCards() : ""}
@@ -908,8 +908,8 @@ function renderAuth() {
             </button>
             <div class="auth-divider"><span>Or continue with</span></div>
             <div class="social-row">
-              <button type="button" class="social-btn">G Google</button>
-              <button type="button" class="social-btn">⌘ GitHub</button>
+              <button type="button" class="social-btn"><span class="brand-icon google-icon">G</span>Google</button>
+              <button type="button" class="social-btn"><span class="brand-icon instagram-icon">◎</span>Instagram</button>
             </div>
             <p class="legal-copy">By creating an account you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p>
             <p id="authMessage" class="small auth-message"></p>

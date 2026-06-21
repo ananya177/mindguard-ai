@@ -1888,7 +1888,7 @@ textarea::placeholder {
 
 .auth-shell {
   width: min(1080px, 100%);
-  min-height: 680px;
+  min-height: 610px;
   grid-template-columns: 1fr 0.95fr;
   border: 1px solid rgba(74, 124, 111, 0.2);
   border-radius: 16px;
@@ -1901,7 +1901,7 @@ textarea::placeholder {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  padding: 44px;
+  padding: 36px;
   background:
     radial-gradient(circle at 10% 8%, rgba(74, 124, 111, 0.38), transparent 22%),
     radial-gradient(circle at 75% 28%, rgba(96, 143, 128, 0.12), transparent 22%),
@@ -1933,7 +1933,7 @@ textarea::placeholder {
   position: relative;
   z-index: 1;
   max-width: 360px;
-  margin: 26px 0 26px;
+  margin: 20px 0 20px;
   color: #c7d6d0;
   font-size: 18px;
   line-height: 1.7;
@@ -2014,13 +2014,13 @@ textarea::placeholder {
 .auth-form-panel {
   display: grid;
   align-content: center;
-  padding: 44px;
+  padding: 32px 38px;
   background: #1a2420;
   color: #eef6f2;
 }
 
 .auth-form-panel h2 {
-  margin: 0 0 18px;
+  margin: 0 0 12px;
   font-size: 20px;
   font-weight: 500;
 }
@@ -2032,7 +2032,7 @@ textarea::placeholder {
 
 .auth-tabs {
   width: 100%;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   border: 1px solid rgba(74, 124, 111, 0.2);
   background: rgba(255, 255, 255, 0.04);
 }
@@ -2049,7 +2049,7 @@ textarea::placeholder {
 }
 
 .auth-modern-form {
-  gap: 14px;
+  gap: 10px;
 }
 
 .auth-field {
@@ -2068,8 +2068,8 @@ textarea::placeholder {
 
 .auth-input-wrap input {
   width: 100%;
-  min-height: 46px;
-  padding: 10px 44px;
+  min-height: 42px;
+  padding: 8px 42px;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05) !important;
@@ -2122,7 +2122,7 @@ textarea::placeholder {
 
 .field-error,
 .auth-message {
-  min-height: 16px;
+  min-height: 12px;
   margin: 0;
   color: #ff8f9d;
   font-size: 12px;
@@ -2139,14 +2139,14 @@ textarea::placeholder {
 .role-card-group {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
 }
 
 .role-card {
   display: grid;
   gap: 4px;
-  min-height: 96px;
-  padding: 12px;
+  min-height: 76px;
+  padding: 9px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
@@ -2161,20 +2161,31 @@ textarea::placeholder {
 
 .role-card small {
   color: #9fb1ab;
+  font-size: 11px;
 }
 
 .consent-check {
   display: flex;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 8px;
   color: #aebfba;
-  font-size: 12px;
-  line-height: 1.45;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.consent-check input {
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  margin: 0;
+  flex: 0 0 auto;
+  accent-color: #4a7c6f;
 }
 
 .auth-submit {
   display: inline-flex;
   width: 100%;
-  min-height: 46px;
+  min-height: 42px;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -2213,7 +2224,7 @@ textarea::placeholder {
 .auth-divider {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: #83958f;
   font-size: 12px;
 }
@@ -2233,11 +2244,35 @@ textarea::placeholder {
 }
 
 .social-btn {
-  min-height: 42px;
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 10px;
   background: transparent;
   color: #dce8e4;
+}
+
+.brand-icon {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.google-icon {
+  background: #ffffff;
+  color: #4285f4;
+}
+
+.instagram-icon {
+  background: #e4405f;
+  color: #fff;
 }
 
 .legal-copy {
