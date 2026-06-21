@@ -876,7 +876,7 @@ function renderAuth() {
           <span class="decor-circle c2"></span>
           <span class="decor-circle c3"></span>
           <div class="auth-editorial-top">
-            <div class="auth-wordmark"><span class="shield-logo" aria-hidden="true">🛡️</span><strong>MindGuard AI</strong></div>
+            <div class="auth-wordmark"><span class="shield-logo" aria-hidden="true">🛡️</span><strong><span>MindGuard</span> <em>AI</em></strong></div>
           </div>
           <div class="auth-hero-copy">
             <p class="auth-kicker">Supportive insight, anytime</p>
