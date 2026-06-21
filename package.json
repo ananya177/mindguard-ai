@@ -1,0 +1,20 @@
+{
+  "name": "mindguard-ai",
+  "version": "1.0.0",
+  "description": "MindGuard AI full-stack mental-health support capstone prototype with MCP-style orchestration.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "keywords": [
+    "mental-health",
+    "mcp",
+    "capstone",
+    "ai-safety"
+  ],
+  "author": "",
+  "license": "MIT"
+}
