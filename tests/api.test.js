@@ -41,9 +41,10 @@ test("MindGuard API supports login, screening, mood trends, and high-risk post a
   const server = await startServer();
   t.after(() => server.kill());
 
-  const login = await request("/api/auth/login", {
+  const email = `test-${Date.now()}@mindguard.local`;
+  const login = await request("/api/auth/signup", {
     method: "POST",
-    body: { email: "user@mindguard.test", password: "password123" }
+    body: { name: "Test User", email, password: "test-password" }
   });
   assert.equal(login.response.status, 200);
   assert.equal(login.data.user.role, "user");

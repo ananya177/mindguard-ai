@@ -12,10 +12,7 @@ npm start
 
 Open `http://localhost:4173`.
 
-Demo accounts:
-
-- `user@mindguard.test` / `password123`
-- `admin@mindguard.test` / `password123`
+Create an account from the sign-up screen to begin. Do not commit real usernames, passwords, or private check-in data.
 
 ## Stack
 

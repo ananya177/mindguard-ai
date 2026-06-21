@@ -874,9 +874,9 @@ function renderAuth() {
             <button class="${state.authMode === "signup" ? "active" : ""}" data-auth="signup">${t("signup")}</button>
           </div>
           <form id="authForm" class="form">
-            ${state.authMode !== "login" && state.authMode !== "forgot" ? `<label>${t("name")}<input name="name" value="Anna" /></label>` : ""}
-            <label>${t("email")}<input name="email" type="email" value="${state.authMode === "signup" ? "" : "user@mindguard.test"}" required /></label>
-            ${state.authMode !== "forgot" ? `<label>${t("password")}<input name="password" type="password" value="password123" required /></label>` : ""}
+            ${state.authMode !== "login" && state.authMode !== "forgot" ? `<label>${t("name")}<input name="name" autocomplete="name" /></label>` : ""}
+            <label>${t("email")}<input name="email" type="email" autocomplete="email" required /></label>
+            ${state.authMode !== "forgot" ? `<label>${t("password")}<input name="password" type="password" autocomplete="${state.authMode === "signup" ? "new-password" : "current-password"}" required /></label>` : ""}
             ${
               state.authMode === "signup"
                 ? `<label>${t("role")}<select name="role"><option value="user">User</option><option value="researcher">Researcher</option><option value="admin">Counselor/Admin</option></select></label>`

@@ -27,36 +27,7 @@ async function ensureDb() {
   await mkdir(DATA_DIR, { recursive: true });
   if (!existsSync(DB_FILE)) {
     const seed = {
-      users: [
-        {
-          id: "user-demo",
-          name: "Demo User",
-          email: "user@mindguard.test",
-          passwordHash: hashPassword("password123"),
-          role: "user",
-          consent: {
-            moodHistory: true,
-            research: true,
-            highRiskAlerts: false,
-            imageAnalysis: true
-          },
-          createdAt: new Date().toISOString()
-        },
-        {
-          id: "admin-demo",
-          name: "Counselor Admin",
-          email: "admin@mindguard.test",
-          passwordHash: hashPassword("password123"),
-          role: "admin",
-          consent: {
-            moodHistory: true,
-            research: false,
-            highRiskAlerts: true,
-            imageAnalysis: true
-          },
-          createdAt: new Date().toISOString()
-        }
-      ],
+      users: [],
       sessions: [],
       phq9Assessments: [],
       moodCheckins: [],
