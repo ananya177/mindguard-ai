@@ -862,44 +862,41 @@ function renderAuth() {
   const isSignup = state.authMode === "signup";
   const isReset = state.authMode === "forgot";
   const greeting = isSignup ? "Let’s get started 🌱" : isReset ? "Reset password" : "Welcome back 👋";
+  const authSwitchPrompt = isSignup
+    ? `<p class="auth-switch-copy">Already have an account? <button type="button" data-auth="login">Sign in →</button></p>`
+    : isReset
+      ? ""
+      : `<p class="auth-switch-copy">Don’t have an account? <button type="button" data-auth="signup">Sign up →</button></p>`;
   app.innerHTML = `
     <main class="auth redesigned-auth">
-      <div class="auth-floating-disclaimer">🛡️ Supportive insights only — not a substitute for professional mental health care.</div>
       <div class="auth-language-floating">${languageSelect()}</div>
       <section class="auth-card auth-shell ${state.authSuccess ? "auth-fading" : ""}">
         <div class="auth-hero auth-story-panel">
+          <span class="decor-circle c1"></span>
+          <span class="decor-circle c2"></span>
+          <span class="decor-circle c3"></span>
           <div class="auth-editorial-top">
             <div class="auth-wordmark"><span class="shield-logo" aria-hidden="true">🛡️</span><strong>MindGuard AI</strong></div>
-            <span class="auth-live-pill">Private wellness check-ins</span>
-          </div>
-          <div class="auth-photo-collage" aria-hidden="true">
-            <span class="photo-card photo-one"></span>
-            <span class="photo-card photo-two"></span>
-            <span class="photo-card photo-three"></span>
           </div>
           <div class="auth-hero-copy">
             <p class="auth-kicker">Supportive insight, anytime</p>
-            <h1>Wellness support, made calmer and personal</h1>
-            <p class="auth-tagline">Check in with your mood, notice emotional patterns, and get gentle next steps in one private space.</p>
+            <h1>Your calm space to check in</h1>
+            <p class="auth-tagline">Private mood tracking, AI support, and gentle pattern insights — all in one place.</p>
             <div class="auth-proof-row" aria-label="MindGuard care standards">
-              <span>Private by design</span>
-              <span>Non-clinical insight</span>
-              <span>Crisis resources ready</span>
+              <span>🔒 Private by design</span>
+              <span>⚕️ Non-clinical</span>
+              <span>🆘 Crisis resources ready</span>
             </div>
           </div>
-          <div class="auth-feature-rail" aria-label="MindGuard quick actions">
-            <span><strong>Screening</strong><small>PHQ-9 style</small></span>
-            <span><strong>AI support</strong><small>Companion chat</small></span>
-            <span><strong>Trends</strong><small>Mood history</small></span>
-          </div>
-          <button class="auth-hero-cta" type="button" data-auth="signup">Get started</button>
+          <p class="auth-panel-disclaimer">Not a substitute for professional mental health care.</p>
         </div>
 
         <div class="auth-form auth-form-panel">
           ${state.authSuccess ? `<div class="auth-success-flash">${state.authSuccess}</div>` : ""}
           ${state.resetSent ? `<div class="auth-reset-success">Check your email for a reset link.</div>` : ""}
           <div class="mobile-auth-brand"><div class="shield-logo">🛡️</div><strong>MindGuard AI</strong></div>
-          <div class="mobile-feature-chips"><span>🧠 Screening</span><span>💬 AI support</span><span>📊 Patterns</span></div>
+          <div class="mobile-feature-chips"><span>🔒 Private</span><span>⚕️ Non-clinical</span><span>🆘 Crisis ready</span></div>
+          <div class="auth-secure-pill">🛡️ Secure & private</div>
           <h2>${greeting}</h2>
           <div class="tabs auth-tabs">
             <button class="${state.authMode === "login" ? "active" : ""}" data-auth="login">Login</button>
@@ -917,10 +914,11 @@ function renderAuth() {
               ${state.authLoading ? `<span class="spinner"></span>` : ""}
               ${isSignup ? "Create account" : isReset ? "Send reset link" : "Sign in"} <span>→</span>
             </button>
+            ${authSwitchPrompt}
             <div class="auth-divider"><span>Or continue with</span></div>
             <div class="social-row">
               <button type="button" class="social-btn"><span class="brand-icon google-icon">G</span>Google</button>
-              <button type="button" class="social-btn"><span class="brand-icon instagram-icon">◎</span>Instagram</button>
+              <button type="button" class="social-btn"><span class="brand-icon microsoft-icon">M</span>Microsoft</button>
             </div>
             <p class="legal-copy">By creating an account you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p>
             <p id="authMessage" class="small auth-message"></p>
@@ -974,9 +972,9 @@ function authInput(name, label, type, placeholder, icon, passwordToggle = false)
 
 function roleCards() {
   const roles = [
-    ["user", `<svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>`, "User", "Track my own wellness"],
-    ["admin", `<svg viewBox="0 0 24 24"><path d="M7 3a4 4 0 0 0-4 4v4a5 5 0 0 0 4 4.9V18a3 3 0 0 0 6 0v-1h2a4 4 0 1 0 4-4h-2a2 2 0 0 0-2 2v1h-2v-1.1A5 5 0 0 0 17 10V7a4 4 0 0 0-4-4h-1v2h1a2 2 0 0 1 2 2v3a3 3 0 0 1-6 0V7a2 2 0 0 1 2-2h1V3H7Zm12 12a2 2 0 1 1-2 2 2 2 0 0 1 2-2Z"/></svg>`, "Counselor", "Support my clients"],
-    ["researcher", `<svg viewBox="0 0 24 24"><path d="M10 2h4v2h-1v4.6l5.8 8.9A3 3 0 0 1 16.3 22H7.7a3 3 0 0 1-2.5-4.5L11 8.6V4h-1V2Zm1.1 9L7 17.4a1 1 0 0 0 .8 1.6h8.5a1 1 0 0 0 .8-1.6L12.9 11h-1.8Z"/></svg>`, "Researcher", "Study aggregated insights"]
+    ["user", "👤", "Individual", "Track my own wellness"],
+    ["admin", "🩺", "Counselor", "Support clients"],
+    ["researcher", "🔬", "Researcher", "Study patterns"]
   ];
   return `
     <div class="role-card-group" role="radiogroup" aria-label="Role">
