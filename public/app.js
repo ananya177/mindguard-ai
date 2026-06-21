@@ -882,10 +882,15 @@ function renderAuth() {
             <p class="auth-kicker">Supportive insight, anytime</p>
             <h1>Your calm space to check in</h1>
             <p class="auth-tagline">Private mood tracking, AI support, and gentle pattern insights — all in one place.</p>
+            <div class="auth-feature-list" aria-label="MindGuard feature highlights">
+              <div><span>🧠</span><p><strong>PHQ-9 style screening</strong><small>private, non-clinical</small></p></div>
+              <div><span>💬</span><p><strong>AI companion chat</strong><small>available anytime</small></p></div>
+              <div><span>📊</span><p><strong>Mood pattern tracking</strong><small>weekly insights</small></p></div>
+            </div>
             <div class="auth-proof-row" aria-label="MindGuard care standards">
               <span>🔒 Private by design</span>
               <span>⚕️ Non-clinical</span>
-              <span>🆘 Crisis resources ready</span>
+              <span>📞 Crisis resources ready</span>
             </div>
           </div>
           <p class="auth-panel-disclaimer">Not a substitute for professional mental health care.</p>
@@ -895,7 +900,7 @@ function renderAuth() {
           ${state.authSuccess ? `<div class="auth-success-flash">${state.authSuccess}</div>` : ""}
           ${state.resetSent ? `<div class="auth-reset-success">Check your email for a reset link.</div>` : ""}
           <div class="mobile-auth-brand"><div class="shield-logo">🛡️</div><strong>MindGuard AI</strong></div>
-          <div class="mobile-feature-chips"><span>🔒 Private</span><span>⚕️ Non-clinical</span><span>🆘 Crisis ready</span></div>
+          <div class="mobile-feature-chips"><span>🔒 Private</span><span>⚕️ Non-clinical</span><span>📞 Crisis ready</span></div>
           <div class="auth-secure-pill">🛡️ Secure & private</div>
           <h2>${greeting}</h2>
           <div class="tabs auth-tabs">
@@ -925,6 +930,7 @@ function renderAuth() {
           </form>
         </div>
       </section>
+      <div class="auth-version-tag">v1.0 · Academic Capstone</div>
     </main>
   `;
 
