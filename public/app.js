@@ -963,9 +963,9 @@ function authInput(name, label, type, placeholder, icon, passwordToggle = false)
 
 function roleCards() {
   const roles = [
-    ["user", "👤", "User", "Track my own wellness"],
-    ["admin", "🩺", "Counselor", "Support my clients"],
-    ["researcher", "🔬", "Researcher", "Study aggregated insights"]
+    ["user", `<svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.4 0-8 2.2-8 5v1h16v-1c0-2.8-3.6-5-8-5Z"/></svg>`, "User", "Track my own wellness"],
+    ["admin", `<svg viewBox="0 0 24 24"><path d="M7 3a4 4 0 0 0-4 4v4a5 5 0 0 0 4 4.9V18a3 3 0 0 0 6 0v-1h2a4 4 0 1 0 4-4h-2a2 2 0 0 0-2 2v1h-2v-1.1A5 5 0 0 0 17 10V7a4 4 0 0 0-4-4h-1v2h1a2 2 0 0 1 2 2v3a3 3 0 0 1-6 0V7a2 2 0 0 1 2-2h1V3H7Zm12 12a2 2 0 1 1-2 2 2 2 0 0 1 2-2Z"/></svg>`, "Counselor", "Support my clients"],
+    ["researcher", `<svg viewBox="0 0 24 24"><path d="M10 2h4v2h-1v4.6l5.8 8.9A3 3 0 0 1 16.3 22H7.7a3 3 0 0 1-2.5-4.5L11 8.6V4h-1V2Zm1.1 9L7 17.4a1 1 0 0 0 .8 1.6h8.5a1 1 0 0 0 .8-1.6L12.9 11h-1.8Z"/></svg>`, "Researcher", "Study aggregated insights"]
   ];
   return `
     <div class="role-card-group" role="radiogroup" aria-label="Role">

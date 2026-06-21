@@ -2154,6 +2154,22 @@ textarea::placeholder {
   text-align: left;
 }
 
+.role-card > span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(142, 212, 189, 0.16);
+  color: #8ed4bd;
+}
+
+.role-card svg {
+  width: 23px;
+  height: 23px;
+  fill: currentColor;
+}
+
 .role-card.selected {
   border-color: #4a7c6f;
   background: rgba(74, 124, 111, 0.18);
