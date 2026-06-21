@@ -864,6 +864,7 @@ function renderAuth() {
   const greeting = isSignup ? "Let’s get started 🌱" : isReset ? "Reset password" : "Welcome back 👋";
   app.innerHTML = `
     <main class="auth redesigned-auth">
+      <div class="auth-floating-disclaimer">🛡️ Supportive insights only — not a substitute for professional mental health care.</div>
       <div class="auth-language-floating">${languageSelect()}</div>
       <section class="auth-card auth-shell ${state.authSuccess ? "auth-fading" : ""}">
         <div class="auth-hero auth-story-panel">
@@ -881,7 +882,6 @@ function renderAuth() {
             <div><span>💬</span><p>AI support companion available anytime</p></div>
             <div><span>📊</span><p>Track emotional patterns over time</p></div>
           </div>
-          <p class="auth-mini-disclaimer"><span>🛡️</span> Supportive insights only — not a substitute for professional mental health care.</p>
         </div>
 
         <div class="auth-form auth-form-panel">

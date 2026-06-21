@@ -1874,9 +1874,27 @@ textarea::placeholder {
 
 .auth-language-floating {
   position: fixed;
-  top: 22px;
+  top: 54px;
   right: 28px;
   z-index: 5;
+}
+
+.auth-floating-disclaimer {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  z-index: 6;
+  max-width: min(720px, calc(100vw - 32px));
+  padding: 8px 14px;
+  border: 1px solid rgba(74, 124, 111, 0.28);
+  border-radius: 999px;
+  background: rgba(26, 36, 32, 0.92);
+  color: #c7d6d0;
+  font-size: 12px;
+  font-weight: 650;
+  text-align: center;
+  transform: translateX(-50%);
+  backdrop-filter: blur(8px);
 }
 
 .auth-language-floating .language-select {
